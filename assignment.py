@@ -19,8 +19,21 @@ print(read_line(filename,line_number))
 
 # Exercise 2
 def reverse_lines(source, destination):
-    # Write your code here
-    pass
+    file = open(source, 'r')
+    lines = file.readlines()
+    file.close()
+    reversed_lines = []
+    for i in range(len(lines) - 1, -1, -1):
+        cleaned_line = lines[i].strip() + "\n"
+        reversed_lines.append(cleaned_line)
+    file = open(destination, 'w')
+    for line in reversed_lines:
+        file.write(line)
+    file.close()
+    return len(reversed_lines)
+source = "Days.txt"
+destination = "destination.txt"
+print(reverse_lines(source,destination))
 
 # Exercise 3
 def merge_files(first, second, destination):
