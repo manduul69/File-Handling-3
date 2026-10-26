@@ -2,8 +2,20 @@
 # Exercise 1
 
 def read_line(filename, line_number):
-    # Write your code here
-    pass
+    if line_number <= 0:
+        return ""
+    else:
+        file = open(filename, 'r')
+        for current_line in range(1, line_number + 1):
+            line = file.readline()
+            if current_line == line_number:
+                return line.rstrip('\n')
+            if not line:
+                return ""
+    file.close()
+filename = "Days.txt"
+line_number = 3
+print(read_line(filename,line_number))
 
 # Exercise 2
 def reverse_lines(source, destination):
